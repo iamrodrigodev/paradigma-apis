@@ -210,9 +210,9 @@ Los desarrolladores usan **polling** para consultar la API periódicamente y det
 | 📍 **Ejemplos** | Consultar estados de pedidos. | Notificación de pagos en Stripe. |  
 
 ### ⚠️ Consideraciones de WebHooks  
-✔ **Fallos:** Es necesario manejar reintentos en caso de fallos de entrega.  
-✔ **Firewalls:** Si una aplicación está detrás de un firewall, puede ser difícil recibir WebHooks.  
-✔ **Ruido:** Demasiados WebHooks en poco tiempo pueden generar tráfico innecesario.  
+📜 **Fallos:** Es necesario manejar reintentos en caso de fallos de entrega.  
+📜 **Firewalls:** Si una aplicación está detrás de un firewall, puede ser difícil recibir WebHooks.  
+📜 **Ruido:** Demasiados WebHooks en poco tiempo pueden generar tráfico innecesario.  
 
 ### 📌 Casos de Uso de WebHooks  
 ✅ Una tienda online notificando una venta a un sistema de facturación.  
