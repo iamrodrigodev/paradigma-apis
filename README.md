@@ -85,11 +85,12 @@ Accept: application/json
 
 ### **Reglas básicas en RPC**  
 1. Los **endpoints contienen el nombre de la operación** que se va a ejecutar.  
-2. Las llamadas a la API se realizan con el **verbo HTTP más apropiado**:  
-   - **GET** → Para solicitudes de solo lectura.  
-   - **POST** → Para las demás operaciones.  
-
----
+2. Las llamadas a la API se realizan con el **verbo HTTP más apropiado**:
+### **Métodos HTTP en RPC**  
+| Método  | Descripción                     |
+|---------|---------------------------------|
+| **GET**    | Para solicitudes de solo lectura |
+| **POST**   | Para las demás operaciones |
 
 # **GraphQL**  
 ✔ **Desarrollado por Facebook en 2012**  
