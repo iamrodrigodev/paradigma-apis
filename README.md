@@ -43,6 +43,16 @@ Un **paradigma de API** es un conjunto de principios y enfoques para diseñar co
 GET /usuarios/123 HTTP/1.1
 Host: api.ejemplo.com
 Accept: application/json
+```
+📌 Respuesta del servidor
+```
+{
+  "id": 123,
+  "nombre": "Juan Pérez",
+  "email": "juan@example.com",
+  "edad": 25
+}
+```
 ### **Métodos HTTP en REST**  
 | Método  | Descripción                     |
 |---------|---------------------------------|
@@ -58,7 +68,7 @@ Accept: application/json
 | **3XX** | Recurso movido                 |
 | **4XX** | Error del lado del cliente     |
 | **5XX** | Error del lado del servidor    |
-```
+
 ---
 
 # **RPC (Remote Procedure Call - Llamada de Procedimiento Remoto)**  
