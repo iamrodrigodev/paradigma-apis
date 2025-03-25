@@ -13,18 +13,18 @@ Un **paradigma** es un modelo o enfoque que define cómo estructurar, diseñar o
 ## ¿Qué es un Paradigma de API?  
 Un **paradigma de API** es un conjunto de principios y enfoques para diseñar correctamente una API.  
 
-- La API **expone** (pone a disposición) ciertos datos o funciones del backend para que otras aplicaciones puedan utilizarlos.  
-- Permite que las aplicaciones interactúen con el backend **sin conocer su implementación interna**.  
+✔ La API **expone** (pone a disposición) ciertos datos o funciones del backend para que otras aplicaciones puedan utilizarlos.  
+✔ Permite que las aplicaciones interactúen con el backend **sin conocer su implementación interna**.  
 
 ---
 
 # **Paradigma de Solicitud - Respuesta**  
 **Ejemplos**: REST, RPC, SOAP, GraphQL.  
 
-- Usa **protocolos web** como HTTP para manejar la comunicación cliente-servidor.  
-- Se definen **endpoints** (URLs específicas) donde los clientes envían solicitudes para acceder o modificar recursos.  
-- Los clientes envían **solicitudes HTTP** a los endpoints para obtener datos o realizar acciones en el servidor.  
-- El servidor **procesa la solicitud** y devuelve una respuesta en **JSON** o **XML**.  
+✔ Usa **protocolos web** como HTTP para manejar la comunicación cliente-servidor.  
+✔ Se definen **endpoints** (URLs específicas) donde los clientes envían solicitudes para acceder o modificar recursos.  
+✔ Los clientes envían **solicitudes HTTP** a los endpoints para obtener datos o realizar acciones en el servidor.  
+✔ El servidor **procesa la solicitud** y devuelve una respuesta en **JSON** o **XML**.  
 
 ---
 
