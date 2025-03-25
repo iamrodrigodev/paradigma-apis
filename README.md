@@ -45,7 +45,7 @@ Host: api.ejemplo.com
 Accept: application/json
 ```
 📌 Respuesta del servidor
-```
+```json
 {
   "id": 123,
   "nombre": "Juan Pérez",
@@ -97,7 +97,7 @@ Accept: application/json
 
 ### **Ejemplo de API RPC**  
 📌 Llamada a un procedimiento remoto para crear un usuario
-```
+```http
 POST /rpc HTTP/1.1
 Host: api.ejemplo.com
 Content-Type: application/json
@@ -112,7 +112,7 @@ Content-Type: application/json
 }
 ```
 📌 Respuesta del servidor
-```
+```json
 {
   "id": 123,
   "mensaje": "Usuario creado exitosamente"
