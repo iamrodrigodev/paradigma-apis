@@ -149,7 +149,7 @@ query ($id: String!) {
   }
 }
 ```
-# **Comparación de Paradigmas API**
+# **Comparación de Paradigmas API: Solicitud - Respuesta**
 
 
 ## **REST vs RPC vs GraphQL: Pros y Contras**
