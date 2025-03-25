@@ -77,9 +77,9 @@ Accept: application/json
 ✔ Mientras que REST se enfoca en **recursos**, RPC se enfoca en **acciones**  
 ✔ **Eficiente** y permite **llamadas directas a funciones**  
 ✔ **No depende de HTTP**, puede usar:  
-  - **Apache Thrift** (soporte para múltiples lenguajes)  
-  - **gRPC (Google Remote Procedure Call)** (ideal para microservicios)  
-  - **Message Queue (MQ) + RPC** (para sistemas de colas)  
+  - **Apache Thrift:** soporte para múltiples lenguajes.
+  - **gRPC (Google Remote Procedure Call):** ideal para microservicios.
+  - **Message Queue (MQ) + RPC:** para sistemas de colas.
 
 📌 **RPC trata con acciones y procedimientos** (*crearUsuario, eliminarUsuario*).  
 
