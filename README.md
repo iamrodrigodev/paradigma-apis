@@ -168,7 +168,7 @@ query ($id: String!) {
 | **Pros**           | Estandarización y fácil mantenimiento. | Simple y de bajo consumo de ancho de banda. | Reduce múltiples viajes de ida y vuelta. |
 | **Contras**        | Cargas útiles grandes. | Puede generar una explosión de funciones. | Requiere optimización adicional. |
 | **¿Cuándo usarlo?** | Para APIs CRUD. | Para APIs con múltiples acciones. | Para APIs con flexibilidad en consultas. |
-
+| **Uso de verbos HTTP** | GET, POST, PUT, PATCH, DELETE    | GET, POST                               | GET, POST    
 ---
 
 # 📡 Paradigma Basado en Eventos
