@@ -157,8 +157,8 @@ query ($id: String!) {
 
 | Característica      | REST                                       | RPC                                        | GraphQL                                   |
 |--------------------|-------------------------------------------|-------------------------------------------|-------------------------------------------|
-| **Pros**           | - Estandarización en métodos, argumentos y códigos de estado.  <br> - Utiliza características de HTTP. <br> - Fácil de mantener y escalar. | - Simple y fácil de entender. <br> - Bajo consumo de ancho de banda. <br> - Alto rendimiento. | - Reduce múltiples viajes de ida y vuelta. <br> - Evita versionado. <br> - Introspección incorporada. |
-| **Contras**        | - Cargas útiles grandes. <br> - Múltiples viajes de ida y vuelta en HTTP. | - Difícil de descubrir. <br> - Estándar limitado. <br> - Puede generar una explosión de funciones. | - Requiere análisis adicional de consultas. <br> - Optimización del backend compleja. <br> - Puede ser innecesariamente complejo para APIs simples. |
+| **Pros**           | Estandarización en métodos, argumentos y códigos de estado. <br> Utiliza características de HTTP. <br> Fácil de mantener y escalar. | Simple y fácil de entender. <br> Bajo consumo de ancho de banda. <br> Alto rendimiento. | Reduce múltiples viajes de ida y vuelta. <br> Evita versionado. <br> Introspección incorporada. |
+| **Contras**        | Cargas útiles grandes. <br> Múltiples viajes de ida y vuelta en HTTP. | Difícil de descubrir. <br> Estándar limitado. <br> Puede generar una explosión de funciones. | Requiere análisis adicional de consultas. <br> Optimización del backend compleja. <br> Puede ser innecesariamente complejo para APIs simples. |
 | **¿Cuándo usarlo?** | Para APIs que realizan operaciones CRUD. | Para APIs que exponen múltiples acciones. | Cuando se necesita flexibilidad en consultas y mantener consistencia. |
 
 ---
