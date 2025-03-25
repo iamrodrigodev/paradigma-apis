@@ -173,7 +173,7 @@ query ($id: String!) {
 
 ---
 
-## **Comparación Específica: GraphQL vs REST** 
+## **GraphQL vs REST** 
 
 | Característica              | **GraphQL**                                      | **REST**                                     |
 |----------------------------|------------------------------------------------|---------------------------------------------|
