@@ -19,7 +19,7 @@ Un **paradigma de API** es un conjunto de principios y enfoques para diseñar co
 ---
 
 # **Paradigma de Solicitud - Respuesta**  
-📌 **Ejemplos**: REST, RPC, SOAP, GraphQL.  
+**Ejemplos**: REST, RPC, SOAP, GraphQL.  
 
 - Usa **protocolos web** como HTTP para manejar la comunicación cliente-servidor.  
 - Se definen **endpoints** (URLs específicas) donde los clientes envían solicitudes para acceder o modificar recursos.  
@@ -35,16 +35,16 @@ Un **paradigma de API** es un conjunto de principios y enfoques para diseñar co
 ✔ Permite que cualquier cliente (*web, móvil, etc.*) consuma la API sin importar la tecnología del backend  
 ✔ **Altamente escalable**  
 
-📌 **REST trabaja con entidades y recursos** (*usuarios, productos, pedidos*).  
+**REST trabaja con entidades y recursos** (*usuarios, productos, pedidos*).  
 
 ### **Ejemplo de API REST**  
-📌 Obtener información de un usuario  
+Obtener información de un usuario  
 ```http
 GET /usuarios/123 HTTP/1.1
 Host: api.ejemplo.com
 Accept: application/json
 ```
-📌 Respuesta del servidor
+Respuesta del servidor
 ```json
 {
   "id": 123,
@@ -84,7 +84,7 @@ Accept: application/json
 | **Message Queue (MQ) + RPC** | Utilizado para sistemas de colas y comunicación asíncrona. |
 
 
-📌 **RPC trata con acciones y procedimientos** (*crearUsuario, eliminarUsuario*).  
+**RPC trata con acciones y procedimientos** (*crearUsuario, eliminarUsuario*).  
 
 ### **Reglas básicas en RPC**  
 1. Los **endpoints contienen el nombre de la operación** que se va a ejecutar.  
@@ -96,7 +96,7 @@ Accept: application/json
 | **POST**   | Para las demás operaciones |
 
 ### **Ejemplo de API RPC**  
-📌 Llamada a un procedimiento remoto para crear un usuario
+Llamada a un procedimiento remoto para crear un usuario
 ```http
 POST /rpc HTTP/1.1
 Host: api.ejemplo.com
@@ -111,7 +111,7 @@ Content-Type: application/json
   }
 }
 ```
-📌 Respuesta del servidor
+Respuesta del servidor
 ```json
 {
   "id": 123,
@@ -124,10 +124,10 @@ Content-Type: application/json
 ✔ El **cliente tiene control sobre la estructura y el contenido de la respuesta**  
 ✔ **Autodocumentado** desde el desarrollo  
 
-📌 **En GraphQL, el cliente puede especificar exactamente qué información necesita en su consulta.**  
+**En GraphQL, el cliente puede especificar exactamente qué información necesita en su consulta.**  
 
 ### **Ejemplo de API GraphQL**  
-📌 Consulta de usuario en GraphQL: en **GraphQL**, el cliente puede solicitar exactamente los datos que necesita. 
+Consulta de usuario en GraphQL: en **GraphQL**, el cliente puede solicitar exactamente los datos que necesita. 
 ```graphql
 query ($id: String!) {  
   user(login: $id) {  
@@ -137,7 +137,7 @@ query ($id: String!) {
   }  
 }
 ```
-📌 Respuesta del servidor
+Respuesta del servidor
 ```json
 {
   "data": {
