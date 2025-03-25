@@ -1,18 +1,16 @@
-# 🌍 Paradigmas de API
+# Paradigmas API
 
-## 📌 Definición de API (Application Programming Interfaces)  
-Una **API** es una interfaz que establece cómo gestionar solicitudes y respuestas mediante:  
+## 📌 Definición de API (Application Programming Interfaces - Interfaz de Programación de Aplicaciones) 
+Una API es una interfaz que establece cómo se deben gestionar las solicitudes y respuestas mediante:  
 ✔ **Métodos**  
 ✔ **Endpoints**  
 ✔ **Tipos de datos**  
 ✔ **Protocolos**  
 
----
-
-## 🤔 ¿Qué es un Paradigma?  
+## ❓ ¿Qué es un Paradigma?  
 Un **paradigma** es un modelo o enfoque que define cómo estructurar, diseñar o resolver un problema en un contexto específico.  
 
-## 🔄 ¿Qué es un Paradigma de API?  
+## 🔍 ¿Qué es un Paradigma de API?  
 Un **paradigma de API** es un conjunto de principios y enfoques para diseñar correctamente una API.  
 
 ✔ La API **expone** (pone a disposición) ciertos datos o funciones del backend para que otras aplicaciones puedan utilizarlos.  
@@ -20,7 +18,7 @@ Un **paradigma de API** es un conjunto de principios y enfoques para diseñar co
 
 ---
 
-# 🔄 Paradigma de Solicitud - Respuesta  
+# 🚀 **Paradigma de Solicitud - Respuesta**  
 **Ejemplos**: REST, RPC, SOAP, GraphQL.  
 
 ✔ Usa **protocolos web** como HTTP para manejar la comunicación cliente-servidor.  
@@ -30,20 +28,24 @@ Un **paradigma de API** es un conjunto de principios y enfoques para diseñar co
 
 ---
 
-# 🌐 REST (Representational State Transfer)  
+# 🌐 **REST (Representational State Transfer - Transferencia de estado representacional)**  
 ✔ **La API más popular en el mercado**  
 ✔ Exponen datos como **recursos** y usan HTTP para realizar **operaciones CRUD**  
 ✔ Usa **JSON**  
 ✔ Permite que cualquier cliente (web, móvil, etc.) consuma la API sin importar la tecnología del backend  
 ✔ **Altamente escalable**  
 
-### 📌 Ejemplo de API REST  
+**REST trabaja con entidades y recursos** (usuarios, productos, pedidos).  
+
+### 📌 **Ejemplo de API REST**  
+📤 **Obtener información de un usuario**  
 ```http
 GET /usuarios/123 HTTP/1.1
 Host: api.ejemplo.com
 Accept: application/json
 ```
-📨 **Respuesta del servidor**  
+
+📥 **Respuesta del servidor**  
 ```json
 {
   "id": 123,
@@ -53,7 +55,7 @@ Accept: application/json
 }
 ```
 
-### 🔹 Métodos HTTP en REST  
+### 🔄 **Métodos HTTP en REST**  
 | Método  | Descripción                     |
 |---------|---------------------------------|
 | **GET**    | Obtener un recurso           |
@@ -61,30 +63,43 @@ Accept: application/json
 | **PUT**    | Modificar un recurso         |
 | **DELETE** | Eliminar un recurso          |
 
-### 📊 Códigos de Estado HTTP  
+### 📊 **Códigos de Estado HTTP**  
 | Código  | Significado                   |
 |---------|--------------------------------|
 | **2XX** | ✅ Éxito                         |
-| **3XX** | 🔀 Recurso movido                 |
+| **3XX** | 🔄 Recurso movido                 |
 | **4XX** | ⚠️ Error del lado del cliente     |
 | **5XX** | ❌ Error del lado del servidor    |
 
 ---
 
-# 🔗 RPC (Remote Procedure Call)  
+# ⚙️ **RPC (Remote Procedure Call - Llamada de Procedimiento Remoto)**  
 ✔ **API más simple**  
 ✔ Un cliente ejecuta un **bloque de código en otro servidor**  
 ✔ Mientras que REST se enfoca en **recursos**, RPC se enfoca en **acciones**  
 ✔ **Eficiente** y permite **llamadas directas a funciones**  
 ✔ **NO depende de HTTP**, puede usar:  
 
-| 🛠️ Tecnología  | 📌 Descripción |
-|---------------|--------------|
-| **Apache Thrift**  | Soporte para múltiples lenguajes de programación. |
-| **gRPC** (Google RPC) | Ideal para microservicios debido a su alto rendimiento. |
+| 🛠 Tecnología               | 📜 Descripción                                      |
+|--------------------------|--------------------------------------------------|
+| **Apache Thrift**        | Soporte para múltiples lenguajes de programación. |
+| **gRPC** (Google Remote Procedure Call) | Ideal para microservicios debido a su alto rendimiento. |
 | **Message Queue (MQ) + RPC** | Utilizado para sistemas de colas y comunicación asíncrona. |
 
-### 📌 Ejemplo de API RPC  
+📌 **RPC trata con acciones y procedimientos** (*crearUsuario, eliminarUsuario*).  
+
+### 📌 **Reglas básicas en RPC**  
+1. Los **endpoints contienen el nombre de la operación** que se va a ejecutar.  
+2. Las llamadas a la API se realizan con el **verbo HTTP más apropiado**:
+
+### 🔄 **Métodos HTTP en RPC**  
+| Método  | Descripción                     |
+|---------|---------------------------------|
+| **GET**    | Para solicitudes de solo lectura |
+| **POST**   | Para las demás operaciones |
+
+### 📌 **Ejemplo de API RPC**  
+📤 **Llamada a un procedimiento remoto para crear un usuario**  
 ```http
 POST /rpc HTTP/1.1
 Host: api.ejemplo.com
@@ -99,7 +114,8 @@ Content-Type: application/json
   }
 }
 ```
-📨 **Respuesta del servidor**  
+
+📥 **Respuesta del servidor**  
 ```json
 {
   "id": 123,
@@ -109,13 +125,16 @@ Content-Type: application/json
 
 ---
 
-# 🚀 GraphQL  
+# 🔷 **GraphQL**  
 ✔ **Desarrollado por Facebook en 2012**  
 ✔ **Trabaja con una sola petición** (a diferencia de REST, que puede requerir múltiples llamadas)  
 ✔ El **cliente tiene control sobre la estructura y el contenido de la respuesta**  
 ✔ **Autodocumentado** desde el desarrollo  
 
-### 📌 Ejemplo de API GraphQL  
+**En GraphQL, el cliente puede especificar exactamente qué información necesita en su consulta.**  
+
+### 📌 **Ejemplo de API GraphQL**  
+📤 **Consulta de usuario en GraphQL**  
 ```graphql
 query ($id: String!) {  
   user(login: $id) {  
@@ -125,7 +144,8 @@ query ($id: String!) {
   }  
 }
 ```
-📨 **Respuesta del servidor**  
+
+📥 **Respuesta del servidor**  
 ```json
 {
   "data": {
@@ -140,37 +160,15 @@ query ($id: String!) {
 
 ---
 
-# 📡 Paradigma Basado en Eventos  
-### ❌ Problema con las APIs de Solicitud-Respuesta  
-✔ Las respuestas pueden quedar obsoletas rápidamente.  
-✔ Se usa "Polling" para actualizar datos, pero consume muchos recursos.  
+# 📊 **Comparación de Paradigmas API: Solicitud - Respuesta**  
+## 📌 **REST vs RPC vs GraphQL: Pros y Contras**
 
-| 🔄 Tipo de Polling  | 📌 Descripción  |
-|--------------------|--------------|
-| **Baja frecuencia** | ⚠️ Puede perder eventos. |
-| **Alta frecuencia** | ❌ Desperdicio de recursos. |
-
----
-
-# 🔔 WebHooks  
-✔ Envían datos en **tiempo real** a una URL específica.  
-✔ Usado por **Slack, Stripe, GitHub y Zapier**.  
+| Característica      | ✅ REST                                       | ⚙️ RPC                                        | 🔷 GraphQL                                   |
+|--------------------|-------------------------------------------|-------------------------------------------|-------------------------------------------|
+| **Pros**           | Estandarización y fácil mantenimiento. | Simple y de bajo consumo de ancho de banda. | Reduce múltiples viajes de ida y vuelta. |
+| **Contras**        | Cargas útiles grandes. | Puede generar una explosión de funciones. | Requiere optimización adicional. |
+| **¿Cuándo usarlo?** | Para APIs CRUD. | Para APIs con múltiples acciones. | Para APIs con flexibilidad en consultas. |
 
 ---
 
-# 📶 WebSockets  
-✔ Protocolo **full-dúplex** sobre TCP.  
-✔ Comunicación bidireccional en tiempo real.  
 
----
-
-# 📡 Comparación: WebHooks vs WebSockets vs HTTP Streaming  
-
-| Característica      | WebHooks 📩 | WebSockets 🔄 | HTTP Streaming 📡 |
-|--------------------|------------|--------------|-----------------|
-| **Funcionamiento**  | Notificación de eventos vía HTTP | Comunicación bidireccional sobre TCP | Conexión de larga duración sobre HTTP |
-| **Ejemplos de uso** | Slack, Stripe, GitHub | Slack, Trello, Blockchain | Twitter, Facebook |
-| **Pros**           | Fácil implementación. | Comunicación en tiempo real. | Transmisión continua sobre HTTP. |
-| **Contras**        | Puede fallar y requerir reintentos. | Requiere conexiones persistentes. | Difícil comunicación bidireccional. |
-
----
