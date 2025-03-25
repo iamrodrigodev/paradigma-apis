@@ -201,21 +201,14 @@ Los desarrolladores usan "polling" para consultar la API periódicamente y detec
 - **Polling con baja frecuencia**: Las aplicaciones pueden perder eventos.
 - **Polling con alta frecuencia**: Se desperdician muchos recursos.
 
-## Alternativas para compartir datos en tiempo real
-Para compartir datos sobre eventos en tiempo real, existen tres mecanismos comunes:
-
-1. **WebHooks**
-2. **WebSockets**
-3. **HTTP Streaming**
-
 ---
 
-## WebHooks
+# WebHooks
 - Simplemente es una URL que acepta una solicitud HTTP `POST` (o `GET`, `PUT` o `DELETE`).
 - Permite recibir actualizaciones en **tiempo real**.
 - Varios proveedores de API, como **Slack, Stripe, GitHub y Zapier**, los soportan.
 
-### Polling vs WebHook
+## Polling vs WebHook
 | Característica      | Polling                                      | WebHook                                  |
 |--------------------|--------------------------------------------|-----------------------------------------|
 | **Funcionamiento**  | El cliente consulta la API periódicamente. | El servidor envía datos automáticamente cuando hay cambios. |
@@ -225,12 +218,12 @@ Para compartir datos sobre eventos en tiempo real, existen tres mecanismos comun
 | **Implementación**  | Fácil, solo requiere hacer solicitudes HTTP periódicas. | Más compleja, requiere configurar un endpoint que reciba los datos. |
 | **Ejemplos de uso** | Consultar actualizaciones de pedidos o notificaciones. | Notificaciones de pago (Stripe), eventos en repositorios (GitHub). |
 
-### Consideraciones de WebHooks
+## Consideraciones de WebHooks
 - **Fallos**: Garantizar la entrega mediante reintentos.
 - **Firewalls**: Las aplicaciones detrás de firewalls pueden enviar datos, pero recibirlos puede ser complicado.
 - **Ruido**: Demasiados WebHooks en poco tiempo pueden generar ruido.
 
-### Casos de Uso de WebHooks
+## Casos de Uso de WebHooks
 - Una tienda en línea notificando a tu aplicación de facturación sobre una venta.
 - Un proveedor de pagos notificando a los comerciantes sobre un pago.
 - Sistemas de control de versiones notificando a los miembros del equipo sobre un commit en un repositorio.
@@ -238,14 +231,14 @@ Para compartir datos sobre eventos en tiempo real, existen tres mecanismos comun
 
 ---
 
-## WebSockets
+# WebSockets
 - Utilizado para establecer un canal de comunicación bidireccional mediante una única conexión **TCP** (Transport Control Protocol).
 - Permite una comunicación **full-dúplex**, lo que significa que el servidor y el cliente pueden comunicarse simultáneamente.
 
-### Beneficio en APIs empresariales
+## Beneficio en APIs empresariales
 Algunos desarrolladores empresariales que usan las APIs de **Slack** prefieren **WebSockets** en lugar de WebHooks, ya que pueden recibir eventos de la API de Slack de forma segura sin necesidad de exponer un endpoint HTTP WebHook en Internet.
 
-### Pros y Contras de WebSockets
+## Pros y Contras de WebSockets
 | Pros                                        | Contras                                  |
 |---------------------------------------------|------------------------------------------|
 | Comunicación bidireccional de baja latencia | Los clientes son responsables de las conexiones |
@@ -253,10 +246,10 @@ Algunos desarrolladores empresariales que usan las APIs de **Slack** prefieren *
 
 ---
 
-## HTTP Streaming
+# HTTP Streaming
 - El servidor mantiene abierta una solicitud específica del cliente para enviar datos continuamente en la misma respuesta.
 
-### Métodos para transmitir datos en **HTTP Streaming**:
+## Métodos para transmitir datos en **HTTP Streaming**:
 1. **Transfer-Encoding: chunked**  
    - Indica que los datos llegarán en fragmentos delimitados por saltos de línea.
    - Fácil de procesar para los desarrolladores.
@@ -264,12 +257,12 @@ Algunos desarrolladores empresariales que usan las APIs de **Slack** prefieren *
 2. **Eventos enviados por el servidor (SSE - Server-Sent Events)**  
    - Ideal para clientes en navegadores, ya que pueden usar la API estándar **EventSource**.
 
-### Uso de HTTP Streaming en Twitter
+## Uso de HTTP Streaming en Twitter
 **Twitter** usa **HTTP Streaming** para enviar tweets en tiempo real a través de una única conexión, evitando la necesidad de hacer polling continuo a su API.
 
 ---
 
-## Comparación: WebHooks vs WebSockets vs HTTP Streaming
+# Comparación: WebHooks vs WebSockets vs HTTP Streaming
 
 | Característica      | WebHooks                                   | WebSockets                                | HTTP Streaming                             |
 |--------------------|------------------------------------------|------------------------------------------|------------------------------------------|
