@@ -76,8 +76,7 @@ Accept: application/json
 ✔ Un cliente ejecuta un **bloque de código en otro servidor**  
 ✔ Mientras que REST se enfoca en **recursos**, RPC se enfoca en **acciones**  
 ✔ **Eficiente** y permite **llamadas directas a funciones**  
-✔ **No depende de HTTP**, puede usar:  
-
+✔ **NO depende de HTTP**, puede usar:  
 | Tecnología               | Descripción                                      |
 |--------------------------|--------------------------------------------------|
 | **Apache Thrift**        | Soporte para múltiples lenguajes de programación. |
