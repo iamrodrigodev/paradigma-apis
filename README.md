@@ -178,8 +178,8 @@ Un paradigma basado en eventos es un modelo de programación donde el flujo de e
 ## ⚠️ Problema con las APIs de Solicitud-Respuesta  
 Con las APIs de solicitud-respuesta, para servicios con datos que cambian constantemente, la respuesta puede volverse obsoleta rápidamente.  
 
-🔹 En una API de solicitud-respuesta (como REST o RPC), el cliente recibe los datos en el momento de la solicitud.  
-🔹 Si los datos en el servidor cambian después de esa respuesta, el cliente **no** se entera automáticamente.  
+✔ En una API de solicitud-respuesta (como REST o RPC), el cliente recibe los datos en el momento de la solicitud.  
+✔ Si los datos en el servidor cambian después de esa respuesta, el cliente **no** se entera automáticamente.  
 
 ---  
 
@@ -194,9 +194,9 @@ Los desarrolladores usan **polling** para consultar la API periódicamente y det
 ---  
 
 ## 🔔 WebHooks  
-🔹 **WebHook** es simplemente una **URL** que acepta solicitudes HTTP **POST**, **GET**, **PUT** o **DELETE**.  
-🔹 Permite recibir actualizaciones en **tiempo real** sin necesidad de hacer consultas repetitivas.  
-🔹 Utilizado en **Slack, Stripe, GitHub, Zapier**, etc.  
+✔ **WebHook** es simplemente una **URL** que acepta solicitudes HTTP **POST**, **GET**, **PUT** o **DELETE**.  
+✔ Permite recibir actualizaciones en **tiempo real** sin necesidad de hacer consultas repetitivas.  
+✔ Utilizado en **Slack, Stripe, GitHub, Zapier**, etc.  
 
 ### 📌 Polling vs WebHook  
 
@@ -222,9 +222,9 @@ Los desarrolladores usan **polling** para consultar la API periódicamente y det
 ---  
 
 ## 🔄 WebSockets  
-🔹 **WebSockets** establecen un canal de comunicación **bidireccional** mediante una única conexión **TCP**.  
-🔹 Permiten una comunicación **full-dúplex**, donde el servidor y el cliente intercambian información simultáneamente.  
-🔹 Son ideales para aplicaciones en **tiempo real** como chats y videojuegos en línea.  
+✔ **WebSockets** establecen un canal de comunicación **bidireccional** mediante una única conexión **TCP**.  
+✔ Permiten una comunicación **full-dúplex**, donde el servidor y el cliente intercambian información simultáneamente.  
+✔ Son ideales para aplicaciones en **tiempo real** como chats y videojuegos en línea.  
 
 ### 🎯 Beneficios en APIs Empresariales  
 📌 Algunos desarrolladores empresariales que usan **Slack** prefieren **WebSockets** en lugar de WebHooks, ya que pueden recibir eventos de forma segura sin exponer un endpoint HTTP al internet.  
@@ -239,8 +239,8 @@ Los desarrolladores usan **polling** para consultar la API periódicamente y det
 ---  
 
 ## 📡 HTTP Streaming  
-🔹 **HTTP Streaming** permite enviar datos continuamente en una misma conexión sin cerrar la respuesta.  
-🔹 Se usa en aplicaciones donde es necesario recibir datos **en tiempo real** sin hacer múltiples solicitudes.  
+✔ **HTTP Streaming** permite enviar datos continuamente en una misma conexión sin cerrar la respuesta.  
+✔ Se usa en aplicaciones donde es necesario recibir datos **en tiempo real** sin hacer múltiples solicitudes.  
 
 ### 🔧 Métodos para transmitir datos en HTTP Streaming  
 1. **📜 Transfer-Encoding: chunked**  
