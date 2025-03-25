@@ -171,4 +171,97 @@ query ($id: String!) {
 
 ---
 
+# 📡 Paradigma Basado en Eventos
 
+Un paradigma basado en eventos es un modelo de programación donde el flujo de ejecución se determina por eventos, como interacciones del usuario, mensajes o cambios de estado.  
+
+## ⚠️ Problema con las APIs de Solicitud-Respuesta  
+Con las APIs de solicitud-respuesta, para servicios con datos que cambian constantemente, la respuesta puede volverse obsoleta rápidamente.  
+
+🔹 En una API de solicitud-respuesta (como REST o RPC), el cliente recibe los datos en el momento de la solicitud.  
+🔹 Si los datos en el servidor cambian después de esa respuesta, el cliente **no** se entera automáticamente.  
+
+---  
+
+## 🔄 Polling  
+Los desarrolladores usan **polling** para consultar la API periódicamente y detectar cambios en los datos.  
+
+| 🛠️ Tipo de Polling    | 📋 Descripción                          |
+|-------------------|----------------------------------|
+| ⏳ **Baja frecuencia** | Puede perder eventos importantes. |
+| 🚀 **Alta frecuencia** | Genera mucho consumo de recursos. |  
+
+---  
+
+## 🔔 WebHooks  
+🔹 **WebHook** es simplemente una **URL** que acepta solicitudes HTTP **POST**, **GET**, **PUT** o **DELETE**.  
+🔹 Permite recibir actualizaciones en **tiempo real** sin necesidad de hacer consultas repetitivas.  
+🔹 Utilizado en **Slack, Stripe, GitHub, Zapier**, etc.  
+
+### 📌 Polling vs WebHook  
+
+| 🏷️ Característica   | 🔄 **Polling**                       | 🔔 **WebHook**                     |
+|-----------------|--------------------------------|--------------------------------|
+| 🏃 **Funcionamiento** | El cliente consulta periódicamente. | El servidor envía datos automáticamente. |
+| ⚡ **Eficiencia**    | ❌ Ineficiente, muchas solicitudes. | ✅ Solo envía datos cuando es necesario. |
+| ⏳ **Frecuencia**   | Definida por el cliente. | En tiempo real. |
+| 💻 **Carga en servidor** | Alta, por solicitudes repetitivas. | Baja, solo se envían datos cuando hay cambios. |
+| 🔧 **Implementación** | Fácil, requiere solicitudes HTTP. | Más compleja, necesita un endpoint receptor. |  
+| 📍 **Ejemplos** | Consultar estados de pedidos. | Notificación de pagos en Stripe. |  
+
+### ⚠️ Consideraciones de WebHooks  
+✔ **Fallos:** Es necesario manejar reintentos en caso de fallos de entrega.  
+✔ **Firewalls:** Si una aplicación está detrás de un firewall, puede ser difícil recibir WebHooks.  
+✔ **Ruido:** Demasiados WebHooks en poco tiempo pueden generar tráfico innecesario.  
+
+### 📌 Casos de Uso de WebHooks  
+✅ Una tienda online notificando una venta a un sistema de facturación.  
+✅ Un proveedor de pagos (ej. PayPal) notificando sobre un pago recibido.  
+✅ Un repositorio en GitHub notificando sobre un nuevo commit.  
+
+---  
+
+## 🔄 WebSockets  
+🔹 **WebSockets** establecen un canal de comunicación **bidireccional** mediante una única conexión **TCP**.  
+🔹 Permiten una comunicación **full-dúplex**, donde el servidor y el cliente intercambian información simultáneamente.  
+🔹 Son ideales para aplicaciones en **tiempo real** como chats y videojuegos en línea.  
+
+### 🎯 Beneficios en APIs Empresariales  
+📌 Algunos desarrolladores empresariales que usan **Slack** prefieren **WebSockets** en lugar de WebHooks, ya que pueden recibir eventos de forma segura sin exponer un endpoint HTTP al internet.  
+
+### ✅ Pros y ❌ Contras de WebSockets  
+
+| ✅ Pros                                       | ❌ Contras                           |
+|----------------------------------------------|--------------------------------------|
+| Comunicación **bidireccional** en tiempo real. | Los clientes deben gestionar las conexiones. |
+| Reducción de sobrecarga por solicitudes HTTP. | Puede ser **difícil de escalar** en grandes sistemas. |  
+
+---  
+
+## 📡 HTTP Streaming  
+🔹 **HTTP Streaming** permite enviar datos continuamente en una misma conexión sin cerrar la respuesta.  
+🔹 Se usa en aplicaciones donde es necesario recibir datos **en tiempo real** sin hacer múltiples solicitudes.  
+
+### 🔧 Métodos para transmitir datos en HTTP Streaming  
+1. **📜 Transfer-Encoding: chunked**  
+   - Envía datos en fragmentos separados por saltos de línea.  
+   - Fácil de procesar y eficiente.  
+2. **🌐 SSE (Server-Sent Events)**  
+   - Permite que el servidor envíe eventos al cliente a través de una única conexión HTTP.  
+   - Compatible con la API estándar **EventSource** en navegadores.  
+
+📌 **Ejemplo:** Twitter usa **HTTP Streaming** para mostrar tweets en tiempo real sin recargar la página.  
+
+---  
+
+## 📊 Comparación: WebHooks vs WebSockets vs HTTP Streaming  
+
+| 🏷️ Característica   | 🔔 **WebHooks**                        | 🔄 **WebSockets**                   | 🌊 **HTTP Streaming**                 |
+|-----------------|--------------------------------|------------------------------|--------------------------------|
+| 🏃 **¿Qué es?** | Notificación de eventos vía HTTP | Conexión **bidireccional** sobre TCP | Conexión de larga duración sobre HTTP |
+| 📦 **Ejemplos** | **Slack, Stripe, GitHub** | **Slack, Trello, Blockchain** | **Twitter, Facebook Live** |
+| ✅ **Pros** | Fácil de implementar. Usa HTTP. | Comunicación en tiempo real. Soporte en navegadores. | Soporte HTTP nativo. Se salta firewalls. |
+| ❌ **Contras** | No funciona bien en navegadores o firewalls. | Requiere mantener conexiones abiertas. | Difícil manejar eventos bidireccionales. |
+| 🎯 **¿Cuándo usarlo?** | Para notificaciones de eventos del servidor. | Para chat en vivo y streaming de datos en tiempo real. | Para actualizaciones unidireccionales en tiempo real. |  
+
+--- 
