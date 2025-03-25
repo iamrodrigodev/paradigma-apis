@@ -152,7 +152,7 @@ query ($id: String!) {
 # **Comparación de Paradigmas API**
 
 
-### **REST vs RPC vs GraphQL: Pros y Contras**
+## **REST vs RPC vs GraphQL: Pros y Contras**
 
 | Característica      | REST                                       | RPC                                        | GraphQL                                   |
 |--------------------|-------------------------------------------|-------------------------------------------|-------------------------------------------|
