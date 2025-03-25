@@ -187,3 +187,5 @@ query ($id: String!) {
 | **Caso de uso recomendado** | Múltiples microservicios y aplicaciones móviles. | Aplicaciones simples y basadas en recursos. |
 
 ---
+
+# **Paradigma Basado en Eventos**  
