@@ -155,17 +155,11 @@ query ($id: String!) {
 
 ### 📊 Pros y Contras  
 
-| Característica      | REST                                         | RPC                                        | GraphQL                                      |
-|--------------------|---------------------------------------------|-------------------------------------------|---------------------------------------------|
-| **Pros**           | Nombre de método, formato de argumentos y códigos de estado estándar.  | Fácil de entender.                      | Ahorra múltiples viajes de ida y vuelta. |
-|                    | Utiliza características de HTTP.          |  Cargas útiles ligeras.                  | - Evita versionado.                        |
-|                    | Fácil de mantener.                        | Alto rendimiento.                        | - Tamaño de carga útil más pequeño.        |
-|                    |                                             |                                           | - Fuertemente tipado.                      |
-|                    |                                             |                                           | - Introspección incorporada.               |
-| **Contras**        | Cargas útiles grandes.                    | Difícil de descubrir.                   | - Requiere análisis adicional de consultas. |
-|                    | Múltiples viajes de ida y vuelta en HTTP. | - Estándar limitado.                      | - Optimización del rendimiento en backend difícil. |
-|                    |                                             | - Puede llevar a una explosión de funciones. | - Demasiado complicado para una API simple. |
-| **¿Cuándo usarlo?** | Para APIs que realizan operaciones CRUD.    | Para APIs que exponen varias acciones.    | Cuando se necesita flexibilidad en consultas y mantener consistencia. |
+| Característica      | REST                                       | RPC                                        | GraphQL                                   |
+|--------------------|-------------------------------------------|-------------------------------------------|-------------------------------------------|
+| **Pros**           | - Estandarización en métodos, argumentos y códigos de estado.  <br> - Utiliza características de HTTP. <br> - Fácil de mantener y escalar. | - Simple y fácil de entender. <br> - Bajo consumo de ancho de banda. <br> - Alto rendimiento. | - Reduce múltiples viajes de ida y vuelta. <br> - Evita versionado. <br> - Introspección incorporada. |
+| **Contras**        | - Cargas útiles grandes. <br> - Múltiples viajes de ida y vuelta en HTTP. | - Difícil de descubrir. <br> - Estándar limitado. <br> - Puede generar una explosión de funciones. | - Requiere análisis adicional de consultas. <br> - Optimización del backend compleja. <br> - Puede ser innecesariamente complejo para APIs simples. |
+| **¿Cuándo usarlo?** | Para APIs que realizan operaciones CRUD. | Para APIs que exponen múltiples acciones. | Cuando se necesita flexibilidad en consultas y mantener consistencia. |
 
 ---
 
