@@ -37,6 +37,12 @@ Un **paradigma de API** es un conjunto de principios y enfoques para diseñar co
 
 📌 **REST trabaja con entidades y recursos** (*usuarios, productos, pedidos*).  
 
+### **Ejemplo de API REST**  
+📌 Obtener información de un usuario  
+```http
+GET /usuarios/123 HTTP/1.1
+Host: api.ejemplo.com
+Accept: application/json
 ### **Métodos HTTP en REST**  
 | Método  | Descripción                     |
 |---------|---------------------------------|
@@ -52,7 +58,7 @@ Un **paradigma de API** es un conjunto de principios y enfoques para diseñar co
 | **3XX** | Recurso movido                 |
 | **4XX** | Error del lado del cliente     |
 | **5XX** | Error del lado del servidor    |
-
+```
 ---
 
 # **RPC (Remote Procedure Call - Llamada de Procedimiento Remoto)**  
