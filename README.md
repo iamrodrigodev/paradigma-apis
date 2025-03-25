@@ -29,7 +29,7 @@ Un **paradigma de API** es un conjunto de principios y enfoques para diseñar co
 
 ---
 
-# **REST (Transferencia de estado representacional)**  
+# **REST (Representational State Transfer - Transferencia de estado representacional)**  
 ✔ **La API más popular en el mercado**  
 ✔ Exponen datos como **recursos** y usan HTTP para realizar **operaciones CRUD**  
 ✔ Usa **JSON**  
