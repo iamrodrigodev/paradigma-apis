@@ -188,4 +188,93 @@ Respuesta del servidor
 
 ---
 
-# **Paradigma Basado en Eventos**  
+# **Paradigma Basado en Eventos** 
+Un paradigma basado en eventos es un modelo de programación donde el flujo de ejecución se determina por eventos, como interacciones del usuario, mensajes o cambios de estado.
+## Problema con las APIs de Solicitud-Respuesta
+Con las APIs de solicitud-respuesta, para servicios con datos que cambian constantemente, la respuesta puede volverse obsoleta rápidamente.
+
+Esto sucede porque en una API de solicitud-respuesta (como REST o RPC), el cliente recibe los datos en el momento de la solicitud, pero si los datos en el servidor cambian después de esa respuesta, el cliente no se entera automáticamente.
+
+### Polling
+Los desarrolladores usan "polling" para consultar la API periódicamente y detectar cambios en los datos.
+
+- **Polling con baja frecuencia**: Las aplicaciones pueden perder eventos.
+- **Polling con alta frecuencia**: Se desperdician muchos recursos.
+
+## Alternativas para compartir datos en tiempo real
+Para compartir datos sobre eventos en tiempo real, existen tres mecanismos comunes:
+
+1. **WebHooks**
+2. **WebSockets**
+3. **HTTP Streaming**
+
+---
+
+## WebHooks
+- Simplemente es una URL que acepta una solicitud HTTP `POST` (o `GET`, `PUT` o `DELETE`).
+- Permite recibir actualizaciones en **tiempo real**.
+- Varios proveedores de API, como **Slack, Stripe, GitHub y Zapier**, los soportan.
+
+### Polling vs WebHook
+| Característica      | Polling                                      | WebHook                                  |
+|--------------------|--------------------------------------------|-----------------------------------------|
+| **Funcionamiento**  | El cliente consulta la API periódicamente. | El servidor envía datos automáticamente cuando hay cambios. |
+| **Eficiencia**      | Ineficiente, genera muchas solicitudes innecesarias. | Eficiente, solo envía datos cuando es necesario. |
+| **Frecuencia**      | Depende del intervalo definido por el cliente. | En tiempo real o casi en tiempo real. |
+| **Carga en el servidor** | Alta, debido a múltiples solicitudes repetitivas. | Baja, ya que solo se envían datos cuando ocurre un evento. |
+| **Implementación**  | Fácil, solo requiere hacer solicitudes HTTP periódicas. | Más compleja, requiere configurar un endpoint que reciba los datos. |
+| **Ejemplos de uso** | Consultar actualizaciones de pedidos o notificaciones. | Notificaciones de pago (Stripe), eventos en repositorios (GitHub). |
+
+### Consideraciones de WebHooks
+- **Fallos**: Garantizar la entrega mediante reintentos.
+- **Firewalls**: Las aplicaciones detrás de firewalls pueden enviar datos, pero recibirlos puede ser complicado.
+- **Ruido**: Demasiados WebHooks en poco tiempo pueden generar ruido.
+
+### Casos de Uso de WebHooks
+- Una tienda en línea notificando a tu aplicación de facturación sobre una venta.
+- Un proveedor de pagos notificando a los comerciantes sobre un pago.
+- Sistemas de control de versiones notificando a los miembros del equipo sobre un commit en un repositorio.
+- Sistemas de monitoreo alertando a los administradores sobre un error o actividad inusual en un sistema.
+
+---
+
+## WebSockets
+- Utilizado para establecer un canal de comunicación bidireccional mediante una única conexión **TCP** (Transport Control Protocol).
+- Permite una comunicación **full-dúplex**, lo que significa que el servidor y el cliente pueden comunicarse simultáneamente.
+
+### Beneficio en APIs empresariales
+Algunos desarrolladores empresariales que usan las APIs de **Slack** prefieren **WebSockets** en lugar de WebHooks, ya que pueden recibir eventos de la API de Slack de forma segura sin necesidad de exponer un endpoint HTTP WebHook en Internet.
+
+### Pros y Contras de WebSockets
+| Pros                                        | Contras                                  |
+|---------------------------------------------|------------------------------------------|
+| Comunicación bidireccional de baja latencia | Los clientes son responsables de las conexiones |
+| Reducción de la sobrecarga de solicitudes HTTP | Desafíos de escalabilidad               |
+
+---
+
+## HTTP Streaming
+- El servidor mantiene abierta una solicitud específica del cliente para enviar datos continuamente en la misma respuesta.
+
+### Métodos para transmitir datos en **HTTP Streaming**:
+1. **Transfer-Encoding: chunked**  
+   - Indica que los datos llegarán en fragmentos delimitados por saltos de línea.
+   - Fácil de procesar para los desarrolladores.
+
+2. **Eventos enviados por el servidor (SSE - Server-Sent Events)**  
+   - Ideal para clientes en navegadores, ya que pueden usar la API estándar **EventSource**.
+
+### Uso de HTTP Streaming en Twitter
+**Twitter** usa **HTTP Streaming** para enviar tweets en tiempo real a través de una única conexión, evitando la necesidad de hacer polling continuo a su API.
+
+---
+
+## Comparación: WebHooks vs WebSockets vs HTTP Streaming
+
+| Característica      | WebHooks                                   | WebSockets                                | HTTP Streaming                             |
+|--------------------|------------------------------------------|------------------------------------------|------------------------------------------|
+| **¿Qué es?**      | Notificación de eventos vía callback HTTP | Conexión bidireccional de streaming sobre TCP | Conexión de larga duración sobre HTTP |
+| **Ejemplos de servicios** | Slack, Stripe, GitHub, Zapier, Google | Slack, Trello, Blockchain | Twitter, Facebook |
+| **Pros**          | Fácil comunicación entre servidores. <br> Usa protocolo HTTP. | Comunicación bidireccional en tiempo real. <br> Soporte nativo en navegador. <br> Puede evitar firewalls. | Puede transmitir sobre HTTP. <br> Soporte nativo en navegador. <br> Puede evitar firewalls. |
+| **Contras**       | No funciona a través de firewalls ni en navegadores. <br> Manejar fallos, reintentos y seguridad es complicado. | Necesita mantener una conexión persistente. <br> No es HTTP. | La comunicación bidireccional es difícil. <br> Se requieren reconexiones para recibir diferentes eventos. |
+| **¿Cuándo usarlo?** | Para activar eventos en tiempo real en el servidor. | Para comunicación bidireccional en tiempo real entre navegadores y servidores. | Para comunicación unidireccional sobre HTTP. |
