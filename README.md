@@ -32,10 +32,10 @@ Un **paradigma de API** es un conjunto de principios y enfoques para diseñar co
 ✔ **La API más popular en el mercado**  
 ✔ Exponen datos como **recursos** y usan HTTP para realizar **operaciones CRUD**  
 ✔ Usa **JSON**  
-✔ Permite que cualquier cliente (*web, móvil, etc.*) consuma la API sin importar la tecnología del backend  
+✔ Permite que cualquier cliente (web, móvil, etc.) consuma la API sin importar la tecnología del backend  
 ✔ **Altamente escalable**  
 
-**REST trabaja con entidades y recursos** (*usuarios, productos, pedidos*).  
+**REST trabaja con entidades y recursos** (usuarios, productos, pedidos).  
 
 ### **Ejemplo de API REST**  
 Obtener información de un usuario  
