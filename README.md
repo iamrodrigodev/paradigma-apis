@@ -95,6 +95,29 @@ Accept: application/json
 | **GET**    | Para solicitudes de solo lectura |
 | **POST**   | Para las demás operaciones |
 
+### **Ejemplo de API RPC**  
+📌 Llamada a un procedimiento remoto para crear un usuario
+```
+POST /rpc HTTP/1.1
+Host: api.ejemplo.com
+Content-Type: application/json
+
+{
+  "method": "crearUsuario",
+  "params": {
+    "nombre": "Juan Pérez",
+    "email": "juan@example.com",
+    "edad": 25
+  }
+}
+```
+📌 Respuesta del servidor
+```
+{
+  "id": 123,
+  "mensaje": "Usuario creado exitosamente"
+}
+```
 # **GraphQL**  
 ✔ **Desarrollado por Facebook en 2012**  
 ✔ **Trabaja con una sola petición** (a diferencia de REST, que puede requerir múltiples llamadas)  
