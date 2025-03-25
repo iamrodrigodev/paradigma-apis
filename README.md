@@ -152,7 +152,7 @@ query ($id: String!) {
 # **Comparación de Paradigmas API**
 
 
-### **Comparación General: REST vs RPC vs GraphQL: Pros y Contras**
+### **REST vs RPC vs GraphQL: Pros y Contras**
 
 | Característica      | REST                                       | RPC                                        | GraphQL                                   |
 |--------------------|-------------------------------------------|-------------------------------------------|-------------------------------------------|
@@ -164,9 +164,9 @@ query ($id: String!) {
 
 ## **Características Principales**
 
-| Característica       | REST                                           | RPC                                             | GraphQL                                        |
-|---------------------|----------------------------------------------|----------------------------------------------|----------------------------------------------|
-| **¿Qué es?**        | Expone datos como recursos y usa métodos HTTP estándar para representar operaciones CRUD. | Expone métodos basados en acciones, donde los clientes pasan el nombre del método y argumentos. | Un lenguaje de consulta para APIs, donde los clientes definen la estructura de la respuesta. |
+| Característica       | REST                                          | RPC                                             | GraphQL                                        |
+|---------------------|---------------------------------------------|----------------------------------------------|----------------------------------------------|
+| **¿Qué es?**        | Expone datos como recursos y usa métodos HTTP estándar para CRUD. | Expone métodos basados en acciones, donde los clientes pasan el nombre del método y argumentos. | Un lenguaje de consulta para APIs, donde los clientes definen la estructura de la respuesta. |
 | **Ejemplos de servicios** | Stripe, GitHub, Twitter, Google         | Slack, Flickr                               | Facebook, GitHub, Yelp                      |
 | **Ejemplo de uso**  | `GET /users/<id>`                            | `GET users.get?id=<id>`                     | ```graphql query ($id: String!) { user(login: $id) { name company createdAt } }``` |
 | **Uso de verbos HTTP** | `GET`, `POST`, `PUT`, `PATCH`, `DELETE`    | `GET`, `POST`                               | `GET`, `POST`                               |
@@ -177,13 +177,13 @@ query ($id: String!) {
 
 | Característica              | **GraphQL**                                      | **REST**                                     |
 |----------------------------|------------------------------------------------|---------------------------------------------|
-| **Rendimiento**             | Rápido                                         | Varias llamadas de red toman más tiempo    |
-| **Complejidad de consulta** | Puede volverse muy compleja debido a diferentes solicitudes de los clientes | Consultas simples, ya que hay endpoints separados para cada consulta |
-| **Popularidad**             | Aún en crecimiento                            | Muy popular                                |
-| **Soporte y comunidad**     | En crecimiento                               | Amplio soporte y comunidad grande          |
-| **Curva de aprendizaje**    | Curva de aprendizaje pronunciada              | Curva de aprendizaje muy sencilla          |
-| **Carga de archivos**       | No compatible                                 | Sí, compatible                             |
-| **Caché web**               | Usa bibliotecas externas                      | Integrado                                  |
-| **Caso de uso recomendado** | Múltiples microservicios y aplicaciones móviles | Aplicaciones simples y basadas en recursos |
+| **Rendimiento**             | Más rápido al evitar múltiples llamadas de red. | Puede requerir varias llamadas de red para obtener toda la información. |
+| **Complejidad de consulta** | Flexible pero puede volverse compleja si hay muchas relaciones de datos. | Consultas simples gracias a endpoints separados. |
+| **Popularidad**             | En crecimiento. | Muy popular y ampliamente adoptado. |
+| **Soporte y comunidad**     | En expansión. | Comunidad establecida y amplia documentación. |
+| **Curva de aprendizaje**    | Pronunciada debido a su sintaxis y flexibilidad. | Sencilla y basada en estándares conocidos. |
+| **Carga de archivos**       | No compatible de forma nativa. | Compatible. |
+| **Caché web**               | Requiere librerías externas. | Integrado en la arquitectura HTTP. |
+| **Caso de uso recomendado** | Múltiples microservicios y aplicaciones móviles. | Aplicaciones simples y basadas en recursos. |
 
 ---
