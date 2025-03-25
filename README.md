@@ -89,8 +89,8 @@ Accept: application/json
 📌 **RPC trata con acciones y procedimientos** (*crearUsuario, eliminarUsuario*).  
 
 ### 📌 **Reglas básicas en RPC**  
-1. Los **endpoints contienen el nombre de la operación** que se va a ejecutar.  
-2. Las llamadas a la API se realizan con el **verbo HTTP más apropiado**:
+✔ Los **endpoints contienen el nombre de la operación** que se va a ejecutar.  
+✔ Las llamadas a la API se realizan con el **verbo HTTP más apropiado**:
 
 ### 🔄 **Métodos HTTP en RPC**  
 | Método  | Descripción                     |
