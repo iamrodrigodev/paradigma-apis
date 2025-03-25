@@ -2,10 +2,10 @@
 
 ## Definición de API  (Application Programming Interfaces - Interfaz de Programación de Aplicaciones) 
 Una API es una interfaz que establece cómo se deben gestionar las solicitudes y respuestas mediante:  
-- **Métodos**  
-- **Endpoints**  
-- **Tipos de datos**  
-- **Protocolos**  
+✔ **Métodos**  
+✔ **Endpoints**  
+✔ **Tipos de datos**  
+✔ **Protocolos**  
 
 ## ¿Qué es un Paradigma?  
 Un **paradigma** es un modelo o enfoque que define cómo estructurar, diseñar o resolver un problema en un contexto específico.  
