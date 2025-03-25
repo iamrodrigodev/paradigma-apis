@@ -197,16 +197,17 @@ Esto sucede porque en una API de solicitud-respuesta (como REST o RPC), el clien
 
 ### Polling
 Los desarrolladores usan "polling" para consultar la API periódicamente y detectar cambios en los datos.
-
-- **Polling con baja frecuencia**: Las aplicaciones pueden perder eventos.
-- **Polling con alta frecuencia**: Se desperdician muchos recursos.
+| Tipo de Polling            | Descripción                                      |
+|---------------------------|--------------------------------------------------|
+| **Baja frecuencia**       | Las aplicaciones pueden perder eventos.         |
+| **Alta frecuencia**       | Se desperdician muchos recursos.                |
 
 ---
 
 # WebHooks
-- Simplemente es una URL que acepta una solicitud HTTP `POST` (o `GET`, `PUT` o `DELETE`).
-- Permite recibir actualizaciones en **tiempo real**.
-- Varios proveedores de API, como **Slack, Stripe, GitHub y Zapier**, los soportan.
+✔ Simplemente es una URL que acepta una solicitud HTTP `POST` (o `GET`, `PUT` o `DELETE`).
+✔ Permite recibir actualizaciones en **tiempo real**.
+✔ Varios proveedores de API, como **Slack, Stripe, GitHub y Zapier**, los soportan.
 
 ## Polling vs WebHook
 | Característica      | Polling                                      | WebHook                                  |
@@ -219,21 +220,21 @@ Los desarrolladores usan "polling" para consultar la API periódicamente y detec
 | **Ejemplos de uso** | Consultar actualizaciones de pedidos o notificaciones. | Notificaciones de pago (Stripe), eventos en repositorios (GitHub). |
 
 ## Consideraciones de WebHooks
-- **Fallos**: Garantizar la entrega mediante reintentos.
-- **Firewalls**: Las aplicaciones detrás de firewalls pueden enviar datos, pero recibirlos puede ser complicado.
-- **Ruido**: Demasiados WebHooks en poco tiempo pueden generar ruido.
+✔ **Fallos**: Garantizar la entrega mediante reintentos.
+✔ **Firewalls**: Las aplicaciones detrás de firewalls pueden enviar datos, pero recibirlos puede ser complicado.
+✔ **Ruido**: Demasiados WebHooks en poco tiempo pueden generar ruido.
 
 ## Casos de Uso de WebHooks
-- Una tienda en línea notificando a tu aplicación de facturación sobre una venta.
-- Un proveedor de pagos notificando a los comerciantes sobre un pago.
-- Sistemas de control de versiones notificando a los miembros del equipo sobre un commit en un repositorio.
-- Sistemas de monitoreo alertando a los administradores sobre un error o actividad inusual en un sistema.
+✔ Una tienda en línea notificando a tu aplicación de facturación sobre una venta.
+✔ Un proveedor de pagos notificando a los comerciantes sobre un pago.
+✔ Sistemas de control de versiones notificando a los miembros del equipo sobre un commit en un repositorio.
+✔ Sistemas de monitoreo alertando a los administradores sobre un error o actividad inusual en un sistema.
 
 ---
 
 # WebSockets
-- Utilizado para establecer un canal de comunicación bidireccional mediante una única conexión **TCP** (Transport Control Protocol).
-- Permite una comunicación **full-dúplex**, lo que significa que el servidor y el cliente pueden comunicarse simultáneamente.
+✔ Utilizado para establecer un canal de comunicación bidireccional mediante una única conexión **TCP** (Transport Control Protocol).
+✔ Permite una comunicación **full-dúplex**, lo que significa que el servidor y el cliente pueden comunicarse simultáneamente.
 
 ## Beneficio en APIs empresariales
 Algunos desarrolladores empresariales que usan las APIs de **Slack** prefieren **WebSockets** en lugar de WebHooks, ya que pueden recibir eventos de la API de Slack de forma segura sin necesidad de exponer un endpoint HTTP WebHook en Internet.
@@ -247,7 +248,7 @@ Algunos desarrolladores empresariales que usan las APIs de **Slack** prefieren *
 ---
 
 # HTTP Streaming
-- El servidor mantiene abierta una solicitud específica del cliente para enviar datos continuamente en la misma respuesta.
+✔ El servidor mantiene abierta una solicitud específica del cliente para enviar datos continuamente en la misma respuesta.
 
 ## Métodos para transmitir datos en **HTTP Streaming**:
 1. **Transfer-Encoding: chunked**  
