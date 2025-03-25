@@ -127,5 +127,25 @@ Content-Type: application/json
 📌 **En GraphQL, el cliente puede especificar exactamente qué información necesita en su consulta.**  
 
 ### **Ejemplo de API GraphQL**  
-📌 Consulta de usuario en GraphQL  
-En **GraphQL**, el cliente puede solicitar exactamente los datos que necesita.  
+📌 Consulta de usuario en GraphQL: en **GraphQL**, el cliente puede solicitar exactamente los datos que necesita. 
+```graphql
+query ($id: String!) {  
+  user(login: $id) {  
+    name  
+    company  
+    createdAt  
+  }  
+}
+```
+📌 Respuesta del servidor
+```json
+{
+  "data": {
+    "user": {
+      "name": "Juan Pérez",
+      "company": "TechCorp",
+      "createdAt": "2024-03-24T12:00:00Z"
+    }
+  }
+}
+```
