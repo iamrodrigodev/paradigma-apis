@@ -157,13 +157,13 @@ query ($id: String!) {
 
 | Característica      | REST                                         | RPC                                        | GraphQL                                      |
 |--------------------|---------------------------------------------|-------------------------------------------|---------------------------------------------|
-| **Pros**           | - Nombre de método, formato de argumentos y códigos de estado estándar.  | - Fácil de entender.                      | - Ahorra múltiples viajes de ida y vuelta. |
-|                    | - Utiliza características de HTTP.          | - Cargas útiles ligeras.                  | - Evita versionado.                        |
-|                    | - Fácil de mantener.                        | - Alto rendimiento.                        | - Tamaño de carga útil más pequeño.        |
+| **Pros**           | Nombre de método, formato de argumentos y códigos de estado estándar.  | Fácil de entender.                      | Ahorra múltiples viajes de ida y vuelta. |
+|                    | Utiliza características de HTTP.          |  Cargas útiles ligeras.                  | - Evita versionado.                        |
+|                    | Fácil de mantener.                        | Alto rendimiento.                        | - Tamaño de carga útil más pequeño.        |
 |                    |                                             |                                           | - Fuertemente tipado.                      |
 |                    |                                             |                                           | - Introspección incorporada.               |
-| **Contras**        | - Cargas útiles grandes.                    | - Difícil de descubrir.                   | - Requiere análisis adicional de consultas. |
-|                    | - Múltiples viajes de ida y vuelta en HTTP. | - Estándar limitado.                      | - Optimización del rendimiento en backend difícil. |
+| **Contras**        | Cargas útiles grandes.                    | Difícil de descubrir.                   | - Requiere análisis adicional de consultas. |
+|                    | Múltiples viajes de ida y vuelta en HTTP. | - Estándar limitado.                      | - Optimización del rendimiento en backend difícil. |
 |                    |                                             | - Puede llevar a una explosión de funciones. | - Demasiado complicado para una API simple. |
 | **¿Cuándo usarlo?** | Para APIs que realizan operaciones CRUD.    | Para APIs que exponen varias acciones.    | Cuando se necesita flexibilidad en consultas y mantener consistencia. |
 
